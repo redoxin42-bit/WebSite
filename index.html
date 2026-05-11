@@ -13,9 +13,10 @@
 
     <nav class="navbar">
         <div class="logo">FLARE</div>
-        <div class="nav-links">
-            <a href="#" class="nav-link active">ГЛАВНАЯ</a>
-            <a href="about.html" class="nav-link">О НАС</a>
+        <div class="nav-right">
+            <div class="theme-switch" id="theme-btn">
+                <div class="switch-circle"></div>
+            </div>
             <a href="about.html" class="func-btn">ФУНКЦИОНАЛ</a>
         </div>
     </nav>
@@ -31,37 +32,24 @@
                 <button class="btn-main" id="buy-trigger">Приобрести</button>
                 <a href="about.html" class="btn-outline">О нас</a>
             </div>
-
-            <div id="payment-methods" class="payment-list hidden">
-                <div class="payment-item"><i class="fas fa-university"></i> СБП</div>
-                <div class="payment-item"><i class="fas fa-credit-card"></i> КАРТА</div>
-                <div class="payment-item"><i class="fas fa-exchange-alt"></i> ПЕРЕВОД</div>
-            </div>
-        </section>
-
-        <section class="function-preview">
-            <h2 class="sub-title">Flare Function</h2>
-            <p class="empty-msg">Функций пока нет.</p>
         </section>
     </div>
 
     <script>
-        document.getElementById('buy-trigger').addEventListener('click', function() {
-            document.getElementById('payment-methods').classList.toggle('show');
-            this.parentElement.style.display = 'none';
+        const themeBtn = document.getElementById('theme-btn');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            themeBtn.classList.toggle('active');
         });
 
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
+                "number": { "value": 50 },
                 "shape": { "type": "triangle" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
-            },
-            "retina_detect": true
+                "color": { "value": "#ffffff" },
+                "line_linked": { "enable": true, "opacity": 0.15 },
+                "move": { "speed": 1 }
+            }
         });
     </script>
 </body>
