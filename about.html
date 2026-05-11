@@ -1,16 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare | Functionality</title>
+    <title>Flare | Function</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="page-about">
-    <div class="content-centered">
-        <h1 class="gradient-text">Our functionality:</h1>
-        <p class="temp-text">пока нету.</p>
-        <a href="index.html" class="back-btn">← Return to Home</a>
+<body class="page-function">
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <h1 class="title-small">FUNCTIONALITY</h1>
+        
+        <div class="func-card">
+            <i class="fas fa-crosshairs"></i>
+            <div>
+                <h3>Aimbot</h3>
+                <p>Smooth prediction & custom FOV</p>
+            </div>
+        </div>
+
+        <div class="func-card">
+            <i class="fas fa-eye"></i>
+            <div>
+                <h3>Visuals</h3>
+                <p>ESP Box, Skeleton, Distance</p>
+            </div>
+        </div>
+
+        <div class="func-card">
+            <i class="fas fa-bolt"></i>
+            <div>
+                <h3>Misc</h3>
+                <p>No Recoil, Speedhack (Soon)</p>
+            </div>
+        </div>
+
+        <p class="status-tag">Status: <span class="online">Undetected</span></p>
+
+        <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
+
+    <script>
+        particlesJS('particles-js', { "particles": { "number": { "value": 40 }, "color": { "value": "#ffffff" }, "line_linked": { "enable": true, "opacity": 0.1 } } });
+    </script>
 </body>
 </html>
