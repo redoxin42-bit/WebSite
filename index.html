@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare External | Premium</title>
+    <title>Flare External | Standoff 2</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,78 +17,91 @@
         <div class="nav-right">
             <button class="theme-toggle" id="theme-btn"><i class="fas fa-sun"></i></button>
             <a href="index.html" class="nav-item active"><i class="fas fa-home"></i></a>
-            <a href="#" class="nav-item"><i class="fas fa-user-circle"></i></a>
+            <button class="nav-item-btn" id="profile-open"><i class="fas fa-user-circle"></i></button>
         </div>
     </nav>
 
+    <div class="modal" id="profile-modal">
+        <div class="modal-content soda-style fade-in-up">
+            <button class="close-btn" id="close-profile">&times;</button>
+            
+            <div id="login-form">
+                <h2 class="modal-title">Авторизация</h2>
+                <input type="text" placeholder="Логин" class="soda-input">
+                <input type="password" placeholder="Пароль" class="soda-input">
+                <button class="btn-happ-style" id="login-btn">Войти</button>
+            </div>
+
+            <div id="user-cabinet" class="hidden">
+                <div class="user-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="avatar">
+                    <h3>Welcome back!</h3>
+                </div>
+                
+                <div class="key-card">
+                    <span class="label">ВАШ КЛЮЧ:</span>
+                    <div class="key-value">FLARE-XXXX-V3-FREE</div>
+                </div>
+
+                <div class="expiry-info">
+                    <span>KEY EXPIRED:</span>
+                    <span class="expiry-timer">14:22:05:01</span>
+                </div>
+
+                <p class="wish-text">УДАЧИ В ИСПОЛЬЗОВАНИИ!</p>
+            </div>
+        </div>
+    </div>
+
     <section class="hero-section">
         <div class="container hero-content fade-in-left">
-            <h1 class="hero-title">
-                Улучши свою игру с<br>
-                <span class="accent">Flare cheat.</span>
-            </h1>
-            
+            <h1 class="hero-title">Улучши свою игру с<br><span class="accent">Flare cheat.</span></h1>
             <div class="button-group">
-                <button class="btn-happ-style" id="buy-trigger">
-                    <i class="fas fa-bolt"></i> Приобрести
-                </button>
+                <button class="btn-happ-style"><i class="fas fa-bolt"></i> Приобрести</button>
                 <a href="about.html" class="btn-outline-minimal">О нас</a>
             </div>
         </div>
     </section>
 
-    <section class="functions-section" id="functions">
+    <section class="functions-section">
         <div class="container">
-            <h2 class="section-subtitle">Premium Features</h2>
+            <h2 class="section-subtitle reveal">Premium Features</h2>
             <div class="function-grid">
                 <div class="func-card reveal">
                     <i class="fas fa-crosshairs"></i>
                     <h3>Aimbot</h3>
-                    <p>Smooth prediction & custom FOV</p>
+                    <p>Точная наводка без тряски.</p>
                 </div>
                 <div class="func-card reveal">
                     <i class="fas fa-eye"></i>
                     <h3>Visuals</h3>
-                    <p>ESP Box, Skeleton, Distance</p>
-                </div>
-                <div class="func-card reveal">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Misc</h3>
-                    <p>No Recoil, No Spread, Movement</p>
+                    <p>Видимость сквозь препятствия.</p>
                 </div>
             </div>
-            <p class="status-badge">Status: <span class="green">Undetected</span></p>
         </div>
     </section>
 
     <script>
-        // Настройка анимации скролла
-        ScrollReveal().reveal('.reveal', { 
-            delay: 200, distance: '50px', origin: 'bottom', interval: 100 
-        });
+        // Логика профиля
+        const modal = document.getElementById('profile-modal');
+        const openBtn = document.getElementById('profile-open');
+        const closeBtn = document.getElementById('close-profile');
+        const loginBtn = document.getElementById('login-btn');
 
-        // Переключение тем с сохранением созвездия
-        const themeBtn = document.getElementById('theme-btn');
-        themeBtn.onclick = () => {
-            document.body.classList.toggle('light-theme');
-            const isLight = document.body.classList.contains('light-theme');
-            // Обновляем цвет частиц динамически
-            window.pJSDom[0].pJS.particles.color.value = isLight ? "#000000" : "#ffffff";
-            window.pJSDom[0].pJS.particles.line_linked.color = isLight ? "#000000" : "#ffffff";
-            window.pJSDom[0].pJS.fn.particlesRefresh();
+        openBtn.onclick = () => modal.style.display = "flex";
+        closeBtn.onclick = () => modal.style.display = "none";
+        
+        loginBtn.onclick = () => {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('user-cabinet').classList.remove('hidden');
         };
 
-        // Созвездие
+        window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
+
+        // Particles и ScrollReveal
+        ScrollReveal().reveal('.reveal', { delay: 200, distance: '30px', origin: 'bottom', interval: 100 });
         particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 90 },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 1.5 }
-            },
-            "interactivity": { "events": { "onclick": { "enable": true, "mode": "push" }, "onhover": { "enable": true, "mode": "grab" } } }
+            "particles": { "number": { "value": 80 }, "shape": { "type": "circle" }, "line_linked": { "enable": true, "opacity": 0.2 }, "move": { "speed": 1 } }
         });
     </script>
 </body>
