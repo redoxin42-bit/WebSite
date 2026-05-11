@@ -3,47 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare | External</title>
+    <title>Flare External | Standoff 2</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
-<body>
+<body class="dark-theme">
     <div id="particles-js"></div>
 
     <nav class="navbar">
         <div class="logo">FLARE</div>
-        <div class="nav-links">
-            <a href="index.html" class="active">ГЛАВНАЯ</a>
-            <a href="about.html">О НАС</a>
-            <button id="profile-btn" class="nav-btn-icon"><i class="profile-icon">👤</i></button>
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-btn"><i class="fas fa-sun"></i></button>
+            <a href="index.html" class="nav-item active"><i class="fas fa-home"></i></a>
+            <button class="nav-item-btn" id="profile-open"><i class="fas fa-user-circle"></i></button>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1 class="hero-title">Улучши свою игру с <br><span class="accent">Flare cheat.</span></h1>
-        <div class="btn-container">
-            <button class="buy-btn">Приобрести</button>
-            <a href="about.html" class="about-btn">О нас</a>
+    <section class="hero-section">
+        <div class="container hero-content fade-in-left">
+            <h1 class="hero-title">Улучши свою игру с<br><span class="accent">Flare cheat.</span></h1>
+            <div class="button-group">
+                <button class="btn-happ-style"><i class="fas fa-bolt"></i> Приобрести</button>
+                <a href="about.html" class="btn-outline-minimal">О нас</a>
+            </div>
         </div>
     </section>
 
-    <div id="auth-modal" class="modal">
-        <div class="modal-content">
-            <div id="login-screen">
-                <h2>Авторизация</h2>
-                <input type="text" placeholder="Логин">
-                <input type="password" placeholder="Пароль">
-                <button id="do-login">Войти</button>
+    <div class="modal" id="profile-modal">
+        <div class="modal-content soda-style">
+            <button class="close-btn" id="close-profile">&times;</button>
+            <div id="login-form">
+                <h2 class="modal-title">Вход</h2>
+                <input type="text" placeholder="Логин" class="soda-input">
+                <input type="password" placeholder="Пароль" class="soda-input">
+                <button class="btn-happ-style" style="width: 100%; justify-content: center;" id="login-btn">Войти</button>
             </div>
-
-            <div id="cabinet-screen" class="hidden">
-                <p class="animated-key">ВАШ КЛЮЧ: <span class="key-code">FLARE-XXXX-V3-FREE</span></p>
-                <p class="expire-text">KEY EXPIRED: <span class="digits">14:22:05:01</span></p>
-                <p class="wish">УДАЧИ В ИСПОЛЬЗОВАНИИ!</p>
+            <div id="user-cabinet" class="hidden">
+                <h3 style="margin-bottom: 20px;">Мой профиль</h3>
+                <div class="key-card">
+                    <span class="label">ВАШ КЛЮЧ:</span>
+                    <div class="key-value">FLARE-XXXX-V3-FREE</div>
+                </div>
+                <div class="expiry-info">
+                    <span>KEY EXPIRED:</span>
+                    <span class="expiry-timer">14:22:05:01</span>
+                </div>
+                <p class="wish-text">УДАЧИ В ИСПОЛЬЗОВАНИИ!</p>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <section class="functions-section">
+        <div class="container">
+            <h2 class="section-subtitle reveal">Функционал</h2>
+            <div class="function-grid">
+                <div class="func-card reveal">
+                    <i class="fas fa-crosshairs"></i>
+                    <h3>Aimbot</h3>
+                    <p>Продвинутый аим с предсказанием движения.</p>
+                </div>
+                <div class="func-card reveal">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visuals</h3>
+                    <p>ESP, Скелеты и инфо о противниках.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Профиль
+        const modal = document.getElementById('profile-modal');
+        document.getElementById('profile-open').onclick = () => modal.style.display = "flex";
+        document.getElementById('close-profile').onclick = () => modal.style.display = "none";
+        document.getElementById('login-btn').onclick = () => {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('user-cabinet').classList.remove('hidden');
+        };
+
+        // Тема и Частицы
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 80 }, "line_linked": { "enable": true, "opacity": 0.2 }, "move": { "speed": 1 } }
+        });
+        ScrollReveal().reveal('.reveal', { delay: 200, distance: '30px', origin: 'bottom', interval: 100 });
+    </script>
 </body>
 </html>
