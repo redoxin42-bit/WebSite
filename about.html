@@ -3,51 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare Cheat | About</title>
+    <title>Flare | О нас</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="particles-js"></div>
-
     <nav class="navbar">
-        <div class="logo">FLARE<span>⚙️</span></div>
-        <div class="nav-links">
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="about.html" class="active">О НАС</a>
-            <button class="func-btn">ФУНКЦИОНАЛ</button>
+        <div class="logo">FLARE</div>
+        <div class="nav-right">
+            <a href="index.html" class="icon-btn"><i class="fas fa-home"></i></a>
         </div>
     </nav>
 
     <main class="container">
-        <div class="glass-card" style="max-width: 600px;">
-            <h1 style="margin-bottom: 20px;">О проекте <span class="accent">Flare</span></h1>
-            <p style="color: #ccc; line-height: 1.6; margin-bottom: 20px;">
-                Мы — команда разработчиков, стремящаяся предоставить лучший опыт в модификации игр. 
-                Наш софт оптимизирован для работы без задержек и обнаружения античитами.
+        <div class="liquid-card" style="max-width: 650px;">
+            <h1 style="margin-bottom: 25px;">Flare <span class="accent">External</span></h1>
+            <p style="opacity: 0.8; margin-bottom: 20px; line-height: 1.6;">
+                <b>External технология:</b> Софт работает отдельно от процесса игры, не внедряясь в ее память. Это гарантирует максимальную защиту от античита и стабильность работы на любых устройствах.
             </p>
-            <ul style="list-style: none; color: #8e99ee;">
-                <li style="margin-bottom: 10px;"><i class="fas fa-check"></i> Статус: Undetected</li>
-                <li style="margin-bottom: 10px;"><i class="fas fa-check"></i> Поддержка 24/7</li>
-                <li style="margin-bottom: 10px;"><i class="fas fa-check"></i> Регулярные обновления</li>
-            </ul>
+            <p style="opacity: 0.8; line-height: 1.6;">
+                С <b>Flare</b> ты получаешь не просто преимущество, а полноценный инструмент для комфортной игры. Мы поддерживаем актуальность нашего софта и выпускаем обновления сразу после патчей игры.
+            </p>
             <br>
-            <a href="index.html" class="btn-primary" style="display: inline-block; text-decoration: none; text-align: center;">На главную</a>
+            <a href="index.html" class="btn-primary" style="display: inline-block; text-decoration: none;">На главную</a>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
-            }
-        });
+        particlesJS("particles-js", { "particles": { "number": { "value": 60 }, "line_linked": { "enable": true, "opacity": 0.2 }, "move": { "speed": 1 } } });
     </script>
 </body>
 </html>
