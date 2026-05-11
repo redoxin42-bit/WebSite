@@ -1,121 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --panel-bg: rgba(255, 255, 255, 0.05);
+    --panel-border: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme {
+    --bg-color: #f5f5f7;
+    --text-color: #1d1d1f;
+    --panel-bg: rgba(0, 0, 0, 0.05);
+    --panel-border: rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.3s, color 0.3s; }
 
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
 }
 
-#particles-js {
+#particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+/* NAVBAR */
+.navbar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    right: 0;
+    padding: 20px 40px;
+    z-index: 100;
 }
 
-.container {
-    position: relative;
-    z-index: 2;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    min-height: 100vh;
+.nav-right {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-
-.title-small {
-    font-size: 2rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #7c93c3;
-}
-
-/* Скрытое меню */
-.hidden { 
-    max-height: 0; 
-    opacity: 0; 
-    overflow: hidden; 
-    transition: all 0.5s ease-in-out; 
-}
-.show { 
-    max-height: 500px; 
-    opacity: 1; 
-    margin-bottom: 20px; 
-}
-
-/* Панели и карточки */
-.payment-panel, .func-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    gap: 25px;
+    background: var(--panel-bg);
+    padding: 10px 20px;
+    border-radius: 30px;
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
+    border: 1px solid var(--panel-border);
 }
 
-.icon-box {
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.panel-text { font-size: 1.1rem; font-weight: 600; }
-
-.func-card i { font-size: 1.5rem; margin-right: 20px; color: #7c93c3; }
-.func-card h3 { font-size: 1.1rem; }
-.func-card p { font-size: 0.85rem; opacity: 0.5; }
-
-/* Голубая кнопка */
-.buy-btn {
-    width: 100%;
-    padding: 20px;
-    background: #7c93c3;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-size: 1.1rem;
+.nav-item {
+    color: var(--text-color);
+    text-decoration: none;
     font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    font-size: 1rem;
+    opacity: 0.6;
     transition: 0.3s;
 }
 
-.buy-btn:hover { background: #8fa3cf; }
+.nav-item:hover, .nav-item.active { opacity: 1; }
 
-.about-link, .back-btn {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    font-size: 1rem;
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.status-tag { text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.6; }
-.online { color: #2ecc71; font-weight: bold; }
+/* ОСНОВНОЙ КОНТЕНТ */
+.container {
+    position: relative; z-index: 2; max-width: 450px; margin: 0 auto;
+    padding: 80px 20px 40px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+}
+
+.title { font-size: 3.5rem; font-weight: 800; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+
+.hidden { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease; }
+.show { max-height: 500px; opacity: 1; margin-bottom: 20px; }
+
+.payment-panel, .func-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px; margin-bottom: 12px;
+    display: flex; align-items: center;
+}
+
+.icon-box {
+    width: 45px; height: 45px; background: rgba(124, 147, 195, 0.2);
+    border-radius: 12px; margin-right: 20px; display: flex; align-items: center; justify-content: center;
+}
+
+.buy-btn {
+    width: 100%; padding: 20px; background: #7c93c3;
+    color: #fff; border: none; border-radius: 20px;
+    font-size: 1.1rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.about-link { display: block; text-align: center; margin-top: 30px; color: var(--text-color); opacity: 0.4; text-decoration: none; }
