@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare Cheat | Main</title>
+    <title>Flare External | Standoff 2</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <div class="logo">FLARE<span>⚙️</span></div>
-        <div class="nav-links">
-            <a href="index.html" class="active">ГЛАВНАЯ</a>
-            <a href="about.html">О НАС</a>
-            <button class="func-btn">ФУНКЦИОНАЛ</button>
+        <div class="logo">FLARE</div>
+        <div class="nav-right">
+            <button class="nav-text-btn" id="func-trigger">ФУНКЦИОНАЛ</button>
+            <button class="icon-btn theme-toggle" id="theme-btn">
+                <i class="fas fa-sun active"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="index.html" class="icon-btn active"><i class="fas fa-home"></i></a>
+            <button class="icon-btn" id="profile-open"><i class="fas fa-user-circle"></i></button>
         </div>
     </nav>
 
     <main class="container">
-        <div id="hero-content" class="menu-section">
+        <div id="hero-content" class="content-left">
             <h1 class="hero-title">Улучши свою игру с <br><span class="accent">Flare cheat.</span></h1>
             <div class="btn-group">
                 <button id="btn-buy" class="btn-primary">Приобрести</button>
@@ -29,63 +33,114 @@
         </div>
 
         <div id="payment-content" class="menu-section hidden">
-            <div class="glass-card payment-card">
-                <button id="btn-back" class="back-link"><i class="fas fa-arrow-left"></i> Назад</button>
-                <h2>Выберите способ оплаты</h2>
-                <div class="payment-methods">
-                    <div class="method-item">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>СБП</span>
+            <div class="liquid-card">
+                <button id="btn-back-pay" class="back-link"><i class="fas fa-arrow-left"></i> Назад</button>
+                <h2 class="section-title">Методы оплаты</h2>
+                <div class="pay-list">
+                    <div class="pay-item"><i class="fas fa-university"></i> СБП</div>
+                    <div class="pay-item"><i class="fas fa-exchange-alt"></i> ПЕРЕВОД</div>
+                    <div class="pay-item"><i class="fab fa-ethereum"></i> USDT (TRC20)</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="func-content" class="menu-section hidden">
+            <div class="liquid-card wide-card">
+                <button id="btn-back-func" class="back-link"><i class="fas fa-arrow-left"></i> Назад</button>
+                <h2 class="section-title">Возможности Flare</h2>
+                <div class="func-grid">
+                    <div class="func-item">
+                        <i class="fas fa-crosshairs"></i>
+                        <div>
+                            <h4>Aimbot</h4>
+                            <p>Silent Aim, FOV, Smoothing</p>
+                        </div>
                     </div>
-                    <div class="method-item">
-                        <i class="fas fa-credit-card"></i>
-                        <span>ПЕРЕВОД</span>
+                    <div class="func-item">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <h4>Visuals</h4>
+                            <p>ESP Boxes, Skeleton, Chams</p>
+                        </div>
                     </div>
-                    <div class="method-item">
-                        <i class="fab fa-ethereum"></i>
-                        <span>USDT (TRC20)</span>
+                    <div class="func-item">
+                        <i class="fas fa-tshirt"></i>
+                        <div>
+                            <h4>Skinchanger</h4>
+                            <p>Все скины и ножи Standoff 2</p>
+                        </div>
+                    </div>
+                    <div class="func-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Misc</h4>
+                            <p>Bhop, No Recoil, Radar</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <div class="modal" id="profile-modal">
+        <div class="liquid-card profile-box">
+            <button class="close-modal" id="close-profile">&times;</button>
+            <div id="login-form">
+                <h3>Авторизация</h3>
+                <input type="text" placeholder="Логин" class="glass-input">
+                <input type="password" placeholder="Пароль" class="glass-input">
+                <button class="btn-primary" id="login-btn" style="width: 100%;">Войти</button>
+            </div>
+            <div id="user-cabinet" class="hidden">
+                <div class="key-display">
+                    <span class="label">ВАШ КЛЮЧ:</span>
+                    <div class="key-anim">FLARE-XXXX-V3-FREE</div>
+                </div>
+                <p class="expire">KEY EXPIRED: <span class="red-nums">14:22:05:01</span></p>
+                <p class="wish">УДАЧИ В ИСПОЛЬЗОВАНИИ!</p>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        /* Конфигурация созвездий (тонкие линии) */
+        // Созвездия
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80 },
                 "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 2, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
-            },
-            "retina_detect": true
+                "line_linked": { "enable": true, "distance": 150, "opacity": 0.2 },
+                "move": { "enable": true, "speed": 1.5 }
+            }
         });
 
-        // Логика переключения меню
-        const btnBuy = document.getElementById('btn-buy');
-        const btnBack = document.getElementById('btn-back');
+        // Элементы
         const hero = document.getElementById('hero-content');
         const payment = document.getElementById('payment-content');
+        const funcMenu = document.getElementById('func-content');
 
-        btnBuy.addEventListener('click', () => {
-            hero.classList.add('hidden');
-            payment.classList.remove('hidden');
-        });
+        // Логика переключения
+        document.getElementById('btn-buy').onclick = () => { hero.classList.add('hidden'); payment.classList.remove('hidden'); };
+        document.getElementById('func-trigger').onclick = () => { hero.classList.add('hidden'); payment.classList.add('hidden'); funcMenu.classList.remove('hidden'); };
+        
+        document.getElementById('btn-back-pay').onclick = () => { payment.classList.add('hidden'); hero.classList.remove('hidden'); };
+        document.getElementById('btn-back-func').onclick = () => { funcMenu.classList.add('hidden'); hero.classList.remove('hidden'); };
 
-        btnBack.addEventListener('click', () => {
-            payment.classList.add('hidden');
-            hero.classList.remove('hidden');
-        });
+        // Модалка
+        const pModal = document.getElementById('profile-modal');
+        document.getElementById('profile-open').onclick = () => pModal.style.display = "flex";
+        document.getElementById('close-profile').onclick = () => pModal.style.display = "none";
+        document.getElementById('login-btn').onclick = () => {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('user-cabinet').classList.remove('hidden');
+        };
+
+        // Тема
+        const themeBtn = document.getElementById('theme-btn');
+        themeBtn.onclick = () => {
+            document.body.classList.toggle('light-theme');
+            themeBtn.querySelectorAll('i').forEach(i => i.classList.toggle('active'));
+        };
     </script>
 </body>
 </html>
