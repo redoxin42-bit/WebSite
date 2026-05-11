@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare Cheat | Premium</title>
+    <title>Flare Cheat</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,55 +12,56 @@
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <div class="nav-left">FLARE</div>
-        <div class="nav-right">
-            <button class="theme-toggle" id="theme-btn"><i class="fas fa-sun"></i></button>
-            <a href="#" class="nav-link">ГЛАВНАЯ</a>
+        <div class="logo">FLARE</div>
+        <div class="nav-links">
+            <a href="#" class="nav-link active">ГЛАВНАЯ</a>
             <a href="about.html" class="nav-link">О НАС</a>
-            <a href="about.html" class="download-btn">ФУНКЦИОНАЛ</a>
+            <a href="about.html" class="func-btn">ФУНКЦИОНАЛ</a>
         </div>
     </nav>
 
     <div class="container">
         <section class="hero">
-            <div class="hero-content">
-                <h1 class="main-title">Улучши свою игру с <br><span>Flare cheat.</span></h1>
-                <div class="action-row">
-                    <button class="btn-primary" id="buy-trigger">Приобрести</button>
-                    <a href="about.html" class="btn-secondary">О нас</a>
-                </div>
+            <h1 class="hero-title">
+                Улучши свою игру с<br>
+                <span class="accent">Flare cheat.</span>
+            </h1>
+            
+            <div class="button-group">
+                <button class="btn-main" id="buy-trigger">Приобрести</button>
+                <a href="about.html" class="btn-outline">О нас</a>
+            </div>
+
+            <div id="payment-methods" class="payment-list hidden">
+                <div class="payment-item"><i class="fas fa-university"></i> СБП</div>
+                <div class="payment-item"><i class="fas fa-credit-card"></i> КАРТА</div>
+                <div class="payment-item"><i class="fas fa-exchange-alt"></i> ПЕРЕВОД</div>
             </div>
         </section>
 
-        <div id="payment-methods" class="hidden">
-            <div class="payment-panel"><i class="fas fa-university"></i> СБП</div>
-            <div class="payment-panel"><i class="fas fa-credit-card"></i> КАРТА</div>
-            <div class="payment-panel"><i class="fas fa-exchange-alt"></i> ПЕРЕВОД</div>
-        </div>
-
-        <section class="function-section">
-            <h2 class="section-title">Flare Function</h2>
-            <p class="no-func">Функций пока нет.</p>
+        <section class="function-preview">
+            <h2 class="sub-title">Flare Function</h2>
+            <p class="empty-msg">Функций пока нет.</p>
         </section>
     </div>
 
     <script>
         document.getElementById('buy-trigger').addEventListener('click', function() {
             document.getElementById('payment-methods').classList.toggle('show');
-            this.parentElement.style.opacity = '0';
+            this.parentElement.style.display = 'none';
         });
 
-        // Настройка треугольников как в видео
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 40 },
-                "shape": { "type": "triangle" },
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#ffffff" },
+                "shape": { "type": "triangle" },
                 "opacity": { "value": 0.2 },
-                "size": { "value": 3 },
+                "size": { "value": 3, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1.2 }
-            }
+                "move": { "enable": true, "speed": 1 }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
