@@ -14,38 +14,42 @@
     <div class="container">
         <h1 class="title">FLARE EXTERNAL</h1>
 
-        <div class="payment-panel">
-            <div class="icon-box"><i class="fas fa-university"></i></div>
-            <div class="panel-text">СБП</div>
+        <div id="payment-methods" class="hidden">
+            <div class="payment-panel">
+                <div class="icon-box"><i class="fas fa-university"></i></div>
+                <div class="panel-text">СБП</div>
+            </div>
+            <div class="payment-panel">
+                <div class="icon-box"><i class="fas fa-credit-card"></i></div>
+                <div class="panel-text">КАРТА</div>
+            </div>
+            <div class="payment-panel">
+                <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
+                <div class="panel-text">ПЕРЕВОД</div>
+            </div>
         </div>
 
-        <div class="payment-panel">
-            <div class="icon-box"><i class="fas fa-credit-card"></i></div>
-            <div class="panel-text">КАРТА</div>
-        </div>
-
-        <div class="payment-panel">
-            <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
-            <div class="panel-text">ПЕРЕВОД</div>
-        </div>
-
-        <button class="buy-btn">
+        <button class="buy-btn" id="buy-trigger">
             <i class="fas fa-wand-magic-sparkles"></i>
             BUY CHEAT
         </button>
 
-        <a href="about.html" class="about-link">About us</a>
+        <a href="about.html" class="about-link">Function</a>
     </div>
 
     <script>
+        // Логика появления меню
+        document.getElementById('buy-trigger').addEventListener('click', function() {
+            const methods = document.getElementById('payment-methods');
+            methods.classList.toggle('show');
+            this.style.display = 'none'; // Прячем кнопку после нажатия, как в приложениях
+        });
+
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 60 },
                 "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.3 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "line_linked": { "enable": true, "distance": 150, "opacity": 0.2 },
                 "move": { "enable": true, "speed": 1.5 }
             }
         });
