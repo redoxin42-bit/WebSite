@@ -1,9 +1,15 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background-color: #000;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
 }
 
@@ -16,84 +22,96 @@ body {
     z-index: 1;
 }
 
-.screen {
+.container {
     position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
-    scroll-snap-align: start;
-}
-
-.main-content { text-align: center; }
-
-.glitch-text {
-    font-size: 3.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    animation: slideUp 1.5s ease-out;
-}
-
-.buy-btn {
-    margin-top: 40px;
-    padding: 15px 50px;
-    background: transparent;
-    border: 2px solid #2ecc71;
-    color: #2ecc71;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.4s;
-    border-radius: 5px;
-    text-transform: uppercase;
-}
-
-.buy-btn:hover {
-    background: #2ecc71;
-    color: #000;
-    box-shadow: 0 0 30px #2ecc71;
-    transform: scale(1.05);
-}
-
-.about-link {
-    color: #fff;
-    font-size: 2rem;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: 0.5s;
-    opacity: 0.6;
-}
-
-.about-link:hover {
-    opacity: 1;
-    border-bottom: 2px solid #fff;
-}
-
-/* Страница About */
-.content-centered {
-    height: 100vh;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Заголовок как на фото */
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+/* Панели (как Happ для Android) */
+.payment-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
     align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.gradient-text {
-    font-size: 4rem;
-    background: linear-gradient(45deg, #fff, #2ecc71);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.payment-panel:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
 }
 
-.temp-text { margin-top: 20px; font-size: 1.5rem; opacity: 0.5; }
-
-.back-btn { margin-top: 50px; color: #2ecc71; text-decoration: none; }
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-html { scroll-behavior: smooth; }
+.panel-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Та самая голубая кнопка */
+.buy-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 18px;
+    background: #7c93c3; /* Тот самый оттенок голубого */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #8fa3cf;
+    box-shadow: 0 0 20px rgba(124, 147, 195, 0.4);
+}
+
+.buy-btn i {
+    font-size: 1.2rem;
+}
+
+/* Ссылка About */
+.about-link {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
