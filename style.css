@@ -1,0 +1,99 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.screen {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    scroll-snap-align: start;
+}
+
+.main-content { text-align: center; }
+
+.glitch-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: slideUp 1.5s ease-out;
+}
+
+.buy-btn {
+    margin-top: 40px;
+    padding: 15px 50px;
+    background: transparent;
+    border: 2px solid #2ecc71;
+    color: #2ecc71;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.buy-btn:hover {
+    background: #2ecc71;
+    color: #000;
+    box-shadow: 0 0 30px #2ecc71;
+    transform: scale(1.05);
+}
+
+.about-link {
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.5s;
+    opacity: 0.6;
+}
+
+.about-link:hover {
+    opacity: 1;
+    border-bottom: 2px solid #fff;
+}
+
+/* Страница About */
+.content-centered {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradient-text {
+    font-size: 4rem;
+    background: linear-gradient(45deg, #fff, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.temp-text { margin-top: 20px; font-size: 1.5rem; opacity: 0.5; }
+
+.back-btn { margin-top: 50px; color: #2ecc71; text-decoration: none; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+html { scroll-behavior: smooth; }
