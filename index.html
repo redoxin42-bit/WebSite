@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare External | Premium Cheat</title>
+    <title>Flare External | Premium</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,10 +14,7 @@
     <nav class="navbar">
         <div class="logo">FLARE</div>
         <div class="nav-right">
-            <button class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-sun" id="sun-icon"></i>
-                <i class="fas fa-moon" id="moon-icon"></i>
-            </button>
+            <button class="theme-toggle" id="theme-btn"><i class="fas fa-sun"></i></button>
             <a href="index.html" class="nav-item active"><i class="fas fa-home"></i></a>
             <a href="#" class="nav-item"><i class="fas fa-user-circle"></i></a>
         </div>
@@ -31,48 +28,49 @@
             </h1>
             
             <div class="button-group">
-                <button class="btn-main" id="buy-trigger">Приобрести</button>
-                <a href="functions.html" class="btn-outline">О нас</a>
+                <button class="btn-purchase" id="buy-trigger">Приобрести</button>
+                <a href="about.html" class="btn-secondary">О нас</a>
             </div>
 
-            <div id="payment-methods" class="hidden">
+            <div id="payment-methods" class="payment-methods hidden">
                 <div class="payment-panel"><i class="fas fa-university"></i> СБП</div>
                 <div class="payment-panel"><i class="fas fa-credit-card"></i> КАРТА</div>
-                <div class="payment-panel"><i class="fas fa-exchange-alt"></i> ПЕРЕВОД</div>
             </div>
         </div>
     </div>
 
     <script>
-        // Появление меню оплаты
+        // Меню оплаты
         document.getElementById('buy-trigger').addEventListener('click', function() {
             document.getElementById('payment-methods').classList.toggle('show');
             this.parentElement.style.opacity = '0';
         });
 
-        // ЛОГИКА ТЕМЫ
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-        });
-
-        // ТОТ САМЫЙ ФОН СОЗВЕЗДИЯ (с треугольниками)
+        // ЛОГИКА АНИМАЦИИ НАЖАТИЯ НА ФОН
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#ffffff" },
-                "shape": { "type": "triangle" },
+                "shape": { "type": "circle" },
                 "opacity": { "value": 0.5 },
-                "size": { "value": 2 },
+                "size": { "value": 2, "random": true },
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
                     "color": "#ffffff", 
-                    "opacity": 0.2, 
+                    "opacity": 0.3, 
                     "width": 1 
                 },
-                "move": { "enable": true, "speed": 1 }
-            }
+                "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onclick": { "enable": true, "mode": "push" }, // При клике "выплескивает" новые частицы
+                    "onhover": { "enable": true, "mode": "grab" }
+                }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
