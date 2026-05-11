@@ -1,117 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
 
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow-x: hidden;
-}
-
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; }
 
 .container {
-    position: relative;
-    z-index: 2;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: relative; z-index: 2; max-width: 450px; margin: 0 auto;
+    padding: 40px 20px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
 }
 
-/* Заголовок как на фото */
-.title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 40px;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-}
+.title { font-size: 3.5rem; font-weight: 800; text-align: center; margin-bottom: 50px; }
+.title-small { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 30px; color: #7c93c3; }
 
-/* Панели (как Happ для Android) */
-.payment-panel {
+/* Анимация появления меню */
+.hidden { 
+    max-height: 0; opacity: 0; overflow: hidden; 
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.show { max-height: 500px; opacity: 1; margin-bottom: 20px; }
+
+.payment-panel, .func-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    transition: 0.3s;
-    cursor: pointer;
+    padding: 20px; margin-bottom: 12px;
+    display: flex; align-items: center;
 }
 
-.payment-panel:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
-}
+.func-card i { font-size: 1.5rem; margin-right: 20px; color: #7c93c3; }
+.func-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.func-card p { font-size: 0.9rem; opacity: 0.5; }
 
 .icon-box {
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 45px; height: 45px; background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px; margin-right: 20px; display: flex; align-items: center; justify-content: center;
 }
 
-.panel-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Та самая голубая кнопка */
 .buy-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 18px;
-    background: #7c93c3; /* Тот самый оттенок голубого */
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s;
+    width: 100%; padding: 20px; background: #7c93c3;
+    color: #fff; border: none; border-radius: 20px;
+    font-size: 1.1rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 
-.buy-btn:hover {
-    background: #8fa3cf;
-    box-shadow: 0 0 20px rgba(124, 147, 195, 0.4);
+.about-link, .back-btn {
+    text-align: center; margin-top: 30px; color: rgba(255,255,255,0.4);
+    text-decoration: none; font-size: 1rem; transition: 0.3s;
 }
+.about-link:hover { color: #fff; }
 
-.buy-btn i {
-    font-size: 1.2rem;
-}
-
-/* Ссылка About */
-.about-link {
-    text-align: center;
-    margin-top: 30px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 0.9rem;
-}
+.status-tag { text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.6; }
+.online { color: #2ecc71; font-weight: bold; }
