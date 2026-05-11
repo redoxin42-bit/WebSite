@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div id="particles-js"></div>
+<body class="dark-theme"> <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-btn">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-item"><i class="fas fa-user-circle"></i></a>
+            <a href="index.html" class="nav-item active">Home</a>
+        </div>
+    </nav>
 
     <div class="container">
         <h1 class="title">FLARE EXTERNAL</h1>
@@ -38,23 +48,44 @@
     </div>
 
     <script>
-        // Появление меню
+        // Логика кнопки покупки
         document.getElementById('buy-trigger').addEventListener('click', function() {
             const methods = document.getElementById('payment-methods');
             methods.classList.toggle('show');
             this.style.display = 'none';
         });
 
-        // ТОТ САМЫЙ ФОН (СОЗВЕЗДИЕ)
+        // ЛОГИКА СМЕНЫ ТЕМЫ
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                updateParticles('#cccccc'); // Серые линии для светлой темы
+            } else {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                updateParticles('#ffffff'); // Белые для темной
+            }
+        });
+
+        function updateParticles(color) {
+            window.pJSDom[0].pJS.particles.color.value = color;
+            window.pJSDom[0].pJS.particles.line_linked.color = color;
+            window.pJSDom[0].pJS.fn.particlesRefresh();
+        }
+
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80 },
                 "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 2, "random": true },
+                "size": { "value": 2 },
                 "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
+                "move": { "enable": true, "speed": 1 }
             },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
